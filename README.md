@@ -1,6 +1,17 @@
-# Project Name
+# JavaScript end-to-end client file upload to Azure Storage Blobs
 
-The sample code is a TypeScript React (create-react-app) framework client with an HTML form for file upload to Azure Storage Blobs. The user selects an image, then uploads the image to Storage Blobs. The tutorial demonstrates how to load and run the project locally with VSCode was well as how to run the code remotely on an App service. The tutorial includes creating a Storage resource, SAS token and CORS configuration. 
+The sample code is a TypeScript React (create-react-app) framework client with an HTML form for file upload to Azure Storage Blobs. The user selects an image, then uploads the image to Storage Blobs. 
+
+The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully.
+
+The tutorial demonstrates how to load and run the project locally with VSCode was well as how to run the code remotely on an App service. The tutorial includes creating a Storage resource, SAS token and CORS configuration. 
+
+## Sample application
+
+The React (create-react-app) client app consists of the following elements:
+
+* **React** app hosted on port 3000
+* uploadToBlob.ts using **@azure/storage-blob** client library to create Blob container and upload file
 
 ## Features
 
@@ -50,42 +61,39 @@ This project framework provides the following features:
 
     Page displays images in container. 
 
-### Prerequisites
+## Prerequisites
 
 - Git, if cloning 
 - Node.js and NPM
 - Web browser
 - Azure subscription to create resource on
 
-### Installation
+## Installation
 
-- `git clone https://github.com/Azure-Samples/js-e2e-browser-file-upload-storage-blob && cd js-e2e-browser-file-upload-storage-blob`
-- `npm install` 
+1. Install the sample's dependencies:
 
-### Quickstart
-(Add steps to get up and running quickly)
+   ```javascript
+    npm install
+    ```
 
-1. git clone [repository clone url]
-2. cd [respository name]
-3. ...
+1. Run the command to run the web app.
 
+    ```javascript
+    npm start
+    ```
 
-## Demo
+1. Open a web browser and use the following url to view the client app on your local computer.
 
-A demo app is included to show how to use the project.
+    ```url
+    http://localhost:3000/
+    ```
 
-To run the demo, follow these steps:
+## Additional scripts
 
-(Add steps to start up the demo)
+* Create Azure Storage Blob from JavaScript file: scripts/newStorageService.js
+* Set CORS for service using Azure CLI script: scripts/az-storage-cors-add.sh
+* Generate SAS Token using Azure CLI script: scripts/az-storage-generate-sas.sh
 
-1.
-2.
-3.
+## Images
 
-## Resources
-
-(Any additional resources or related projects)
-
-- Link to supporting information
-- Link to similar sample
-- ...
+The /images folder includes images for upload. 
