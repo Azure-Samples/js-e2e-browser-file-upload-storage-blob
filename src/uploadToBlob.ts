@@ -6,6 +6,10 @@ const containerName = `container${new Date().getTime()}`;
 const storageAccountName = '';
 const sasToken = '';
 
+export const isStorageConfigured = () => {
+  return (!storageAccountName || !sasToken) ? false : true;
+}
+
 // return list of blobs in container to display
 const getBlobsInContainer = async (containerClient) => {
   const returnedBlobUrls: string[] = [];

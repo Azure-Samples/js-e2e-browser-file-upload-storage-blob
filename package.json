@@ -26,7 +26,7 @@
     "transpile": "tsc --project tsconfig-script.json",
     "server:create": "node scripts/newStorageService.js",
     "format": "prettier --write src/**/*.ts{,x}",
-    "lint": "tsc --noEmit  && eslint --fix src/**/*.ts{,x}"
+    "lint": "tsc --noEmit  && eslint  src/**/*.ts{,x} --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
