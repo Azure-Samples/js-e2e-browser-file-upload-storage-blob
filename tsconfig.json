@@ -4,7 +4,8 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
+      "esnext.asynciterable"
     ],
     "allowJs": true,
     "skipLibCheck": true,
@@ -18,10 +19,13 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
-    "noImplicitAny": false
+    "noImplicitAny": false,
   },
   "include": [
     "src",
     "scripts"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }
