@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Path from 'path';
-import uploadFileToBlob from './uploadToBlob';
+import uploadFileToBlob, { isStorageConfigured } from './uploadToBlob';
+
+const storageConfigured = isStorageConfigured();
 
 const App = (): JSX.Element => {
   // all blobs in container
@@ -13,6 +15,8 @@ const App = (): JSX.Element => {
   const [uploading, setUploading] = useState(false);
   const [inputKey, setInputKey] = useState(Math.random().toString(36));
 
+
+  
   const onFileChange = (event) => {
     // capture file into state
     setFileSelected(event.target.files[0]);
@@ -34,6 +38,16 @@ const App = (): JSX.Element => {
     setInputKey(Math.random().toString(36));
   };
 
+  // display form
+  const DisplayForm = () => (
+    <div>
+      <input type="file" onChange={onFileChange} key={inputKey || ''} />
+      <button type="submit" onClick={onFileUpload}>
+        Upload!
+          </button>
+    </div>
+  )
+  
   // display file name and image
   const DisplayImagesFromContainer = () => (
     <div>
@@ -57,17 +71,11 @@ const App = (): JSX.Element => {
   return (
     <div>
       <h1>Upload file to Azure Blob Storage</h1>
-      {!uploading && (
-        <div>
-          <input type="file" onChange={onFileChange} key={inputKey || ''} />
-          <button type="submit" onClick={onFileUpload}>
-            Upload!
-          </button>
-        </div>
-      )}
-      {uploading && <div>Uploading</div>}
+      {storageConfigured && !uploading && DisplayForm() }
+      {storageConfigured && uploading && <div>Uploading</div>}
       <hr />
-      {blobList.length > 0 && DisplayImagesFromContainer()}
+      {storageConfigured && blobList.length > 0 && DisplayImagesFromContainer()}
+      {!storageConfigured && <div>Storage is not configured.</div>}      
     </div>
   );
 };
