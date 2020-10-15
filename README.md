@@ -1,10 +1,10 @@
 # JavaScript end-to-end client file upload to Azure Storage Blobs
 
-The sample code is a TypeScript React (create-react-app) framework client with an HTML form for file upload to Azure Storage Blobs. The user selects an image, then uploads the image to Storage Blobs. 
+The sample code is a TypeScript React (create-react-app) framework client with an HTML form for file upload to Azure Storage Blobs. The user selects an image from the file system, then uploads the image to Storage Blobs. 
 
 The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully.
 
-The tutorial demonstrates how to load and run the project locally with VSCode was well as how to run the code remotely on an App service. The tutorial includes creating a Storage resource, SAS token and CORS configuration. 
+The tutorial demonstrates how to load and run the project locally with VSCode was well as how to run the code remotely on an Static Web App service. The tutorial includes creating a Storage resource, SAS token and CORS configuration. 
 
 ## Sample application
 
@@ -41,10 +41,15 @@ This project framework provides the following features:
     npm install
     ```
 
+    To run the React app, you need the following Azure SDK client npm packages:
+    * @azure/ms-rest-nodeauth
+    * @azure/storage-blob
+
+    A third Azure package, @azure/arm-storage, is listed in the `package.json` strictly for use by the `scripts/newStorageService.js` file to create a new Azure Storage resource.
+
 1. Set Storage information found at the top of /src/uploadToBlob.ts:
 
     ```javascript
-    const containerName = "container" + new Date().getTime();
     const storageAccountName = "";
     const sasToken = "";
     ```
@@ -57,7 +62,7 @@ This project framework provides the following features:
 
 1. View project in browser, `http://localhost:3000`.
 
-1. Select image from `images` then select `Upload!`. 
+1. Select image then select `Upload!`. 
 
     Page displays images in container. 
 
