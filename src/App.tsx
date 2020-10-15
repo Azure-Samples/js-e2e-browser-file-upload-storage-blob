@@ -16,8 +16,8 @@ const App = (): JSX.Element => {
   const [inputKey, setInputKey] = useState(Math.random().toString(36));
 
 
-  
-  const onFileChange = (event) => {
+
+  const onFileChange = (event: any) => {
     // capture file into state
     setFileSelected(event.target.files[0]);
   };
@@ -47,7 +47,7 @@ const App = (): JSX.Element => {
           </button>
     </div>
   )
-  
+
   // display file name and image
   const DisplayImagesFromContainer = () => (
     <div>
@@ -71,13 +71,15 @@ const App = (): JSX.Element => {
   return (
     <div>
       <h1>Upload file to Azure Blob Storage</h1>
-      {storageConfigured && !uploading && DisplayForm() }
+      {storageConfigured && !uploading && DisplayForm()}
       {storageConfigured && uploading && <div>Uploading</div>}
       <hr />
       {storageConfigured && blobList.length > 0 && DisplayImagesFromContainer()}
-      {!storageConfigured && <div>Storage is not configured.</div>}      
+      {!storageConfigured && <div>Storage is not configured.</div>}
     </div>
   );
 };
 
 export default App;
+
+

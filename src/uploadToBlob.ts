@@ -1,17 +1,17 @@
 // WARNING - THIS IS SAMPLE CODE - NOT MEANT FOR PRODUCTION USE
-import { BlobServiceClient /* , BlockBlobClient */ } from '@azure/storage-blob';
+import { BlobServiceClient, ContainerClient /* , BlockBlobClient */ } from '@azure/storage-blob';
 
 // DON'T DO THIS IN PRODUCTION CODE
 const containerName = `container${new Date().getTime()}`;
-const storageAccountName = '';
-const sasToken = '';
+const storageAccountName = ''; // Fill string with your Storage resource name
+const sasToken = ''; // Fill string with your SAS token
 
 export const isStorageConfigured = () => {
   return (!storageAccountName || !sasToken) ? false : true;
 }
 
 // return list of blobs in container to display
-const getBlobsInContainer = async (containerClient) => {
+const getBlobsInContainer = async (containerClient: ContainerClient) => {
   const returnedBlobUrls: string[] = [];
 
   // get list of blobs in container
@@ -25,7 +25,7 @@ const getBlobsInContainer = async (containerClient) => {
 
   return returnedBlobUrls;
 };
-const createBlobInContainer = async (containerClient, file) => {
+const createBlobInContainer = async (containerClient: ContainerClient, file: File) => {
   // create blobClient for container
   const blobClient = containerClient.getBlockBlobClient(file.name);
 
@@ -44,7 +44,7 @@ const uploadFileToBlob = async (file: File | null): Promise<string[]> => {
   );
 
   // get Container - full public read access
-  const containerClient = blobService.getContainerClient(containerName);
+  const containerClient: ContainerClient = blobService.getContainerClient(containerName);
   await containerClient.createIfNotExists({
     access: 'container',
   });
@@ -57,3 +57,4 @@ const uploadFileToBlob = async (file: File | null): Promise<string[]> => {
 };
 
 export default uploadFileToBlob;
+
