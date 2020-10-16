@@ -2,9 +2,9 @@
 import { BlobServiceClient, ContainerClient /* , BlockBlobClient */ } from '@azure/storage-blob';
 
 // DON'T DO THIS IN PRODUCTION CODE
-const containerName = `container${new Date().getTime()}`;
-const storageAccountName = ''; // Fill string with your Storage resource name
-const sasToken = ''; // Fill string with your SAS token
+const containerName = `tutorial-container`;
+const storageAccountName = process.env.storageresourcename || ""; // Fill string with your Storage resource name
+const sasToken = process.env.storagesastoken || ""; // Fill string with your SAS token
 
 export const isStorageConfigured = () => {
   return (!storageAccountName || !sasToken) ? false : true;
@@ -40,7 +40,7 @@ const uploadFileToBlob = async (file: File | null): Promise<string[]> => {
 
   // get BlobService
   const blobService = new BlobServiceClient(
-    `https://${storageAccountName}.blob.core.windows.net/${sasToken}`
+    `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`
   );
 
   // get Container - full public read access
