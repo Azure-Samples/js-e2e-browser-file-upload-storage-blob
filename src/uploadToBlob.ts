@@ -3,8 +3,8 @@ import { BlobServiceClient, ContainerClient /* , BlockBlobClient */ } from '@azu
 
 // DON'T DO THIS IN PRODUCTION CODE
 const containerName = `tutorial-container`;
-const storageAccountName = ''; // Fill string with your Storage resource name
-const sasToken = ''; // Fill string with your SAS token
+const storageAccountName = process.env.storageresourcename || ""; // Fill string with your Storage resource name
+const sasToken = process.env.storagesastoken || ""; // Fill string with your SAS token
 
 export const isStorageConfigured = () => {
   return (!storageAccountName || !sasToken) ? false : true;
