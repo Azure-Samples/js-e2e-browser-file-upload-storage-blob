@@ -2,7 +2,7 @@
 import { BlobServiceClient, ContainerClient /* , BlockBlobClient */ } from '@azure/storage-blob';
 
 // DON'T DO THIS IN PRODUCTION CODE
-const containerName = `container${new Date().getTime()}`;
+const containerName = `tutorial-container`;
 const storageAccountName = ''; // Fill string with your Storage resource name
 const sasToken = ''; // Fill string with your SAS token
 
