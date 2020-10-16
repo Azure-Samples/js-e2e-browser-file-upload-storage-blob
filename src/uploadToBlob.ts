@@ -40,7 +40,7 @@ const uploadFileToBlob = async (file: File | null): Promise<string[]> => {
 
   // get BlobService
   const blobService = new BlobServiceClient(
-    `https://${storageAccountName}.blob.core.windows.net/${sasToken}`
+    `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`
   );
 
   // get Container - full public read access
