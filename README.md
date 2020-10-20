@@ -4,7 +4,7 @@ The sample code is a TypeScript React (create-react-app) framework client with a
 
 The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully.
 
-The tutorial demonstrates how to load and run the project locally with VSCode was well as how to run the code remotely on an Static Web App service. The tutorial includes creating a Storage resource, SAS token and CORS configuration. 
+The tutorial demonstrates how to load and run the project locally with VSCode. The tutorial includes creating a Storage resource, SAS token and CORS configuration. 
 
 ## Sample application
 
