@@ -1,15 +1,21 @@
-// WARNING - THIS IS SAMPLE CODE - NOT MEANT FOR PRODUCTION USE
-import { BlobServiceClient, ContainerClient /* , BlockBlobClient */ } from '@azure/storage-blob';
+// <snippet_package>
+// THIS IS SAMPLE CODE ONLY - NOT MEANT FOR PRODUCTION USE
+import { BlobServiceClient, ContainerClient} from '@azure/storage-blob';
 
-// DON'T DO THIS IN PRODUCTION CODE
+// THIS IS SAMPLE CODE ONLY - DON'T STORE TOKEN IN PRODUCTION CODE
+const sasToken = process.env.storagesastoken || ""; // Fill string with your SAS token
 const containerName = `tutorial-container`;
 const storageAccountName = process.env.storageresourcename || ""; // Fill string with your Storage resource name
-const sasToken = process.env.storagesastoken || ""; // Fill string with your SAS token
+// </snippet_package>
 
+// <snippet_isStorageConfigured>
+// Feature flag - disable storage feature to app if not configured
 export const isStorageConfigured = () => {
   return (!storageAccountName || !sasToken) ? false : true;
 }
+// </snippet_isStorageConfigured>
 
+// <snippet_getBlobsInContainer>
 // return list of blobs in container to display
 const getBlobsInContainer = async (containerClient: ContainerClient) => {
   const returnedBlobUrls: string[] = [];
@@ -24,8 +30,12 @@ const getBlobsInContainer = async (containerClient: ContainerClient) => {
   }
 
   return returnedBlobUrls;
-};
+}
+// </snippet_getBlobsInContainer>
+
+// <snippet_createBlobInContainer>
 const createBlobInContainer = async (containerClient: ContainerClient, file: File) => {
+  
   // create blobClient for container
   const blobClient = containerClient.getBlockBlobClient(file.name);
 
@@ -34,11 +44,14 @@ const createBlobInContainer = async (containerClient: ContainerClient, file: Fil
 
   // upload file
   await blobClient.uploadBrowserData(file, options);
-};
+}
+// </snippet_createBlobInContainer>
+
+// <snippet_uploadFileToBlob>
 const uploadFileToBlob = async (file: File | null): Promise<string[]> => {
   if (!file) return [];
 
-  // get BlobService
+  // get BlobService = notice `?` is pulled out of sasToken - if created in Azure portal
   const blobService = new BlobServiceClient(
     `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`
   );
@@ -55,6 +68,7 @@ const uploadFileToBlob = async (file: File | null): Promise<string[]> => {
   // get list of blobs in container
   return getBlobsInContainer(containerClient);
 };
+// </snippet_uploadFileToBlob>
 
 export default uploadFileToBlob;
 
