@@ -15,8 +15,6 @@ const App = (): JSX.Element => {
   const [uploading, setUploading] = useState(false);
   const [inputKey, setInputKey] = useState(Math.random().toString(36));
 
-
-
   const onFileChange = (event: any) => {
     // capture file into state
     setFileSelected(event.target.files[0]);
