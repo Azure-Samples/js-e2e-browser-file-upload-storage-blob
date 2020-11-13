@@ -95,6 +95,14 @@ This project framework provides the following features:
     http://localhost:3000/
     ```
 
+## Troubleshooting
+
+If you received an error or your file doesn't upload to the container, check the following:
+
+* Recreate your SAS token, making sure that your token is created at the Storage resource level and not the container level. Copy the new token into the code at the correct location.
+* Check that the token string you copied into the code doesn't contain the `?` (question mark) at the beginning of the string.
+* Verify your CORS setting for your Storage resource.
+
 ## Additional scripts
 
 * Create Azure Storage Blob from JavaScript file: scripts/newStorageService.js
