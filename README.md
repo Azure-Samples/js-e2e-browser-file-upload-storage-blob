@@ -1,5 +1,7 @@
 # JavaScript end-to-end client file upload to Azure Storage Blobs
 
+For a complete tutorial, please use the [Microsoft Documentation tutorial found here](https://docs.microsoft.com/azure/developer/javascript/tutorial/browser-file-upload). 
+
 The sample code is a TypeScript React (create-react-app) framework client with an HTML form for file upload to Azure Storage Blobs. The user selects an image from the file system, then uploads the image to Storage Blobs. 
 
 The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully.
