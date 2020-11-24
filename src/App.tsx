@@ -1,16 +1,28 @@
 import React, { useState } from 'react';
 import Path from 'path';
 import uploadFileToBlob, { isStorageConfigured } from './uploadToBlob';
+import AzureAuthenticationButton from './azure-authentication-component-buton';
+import AzureLoggedOut from './azure-authentication-component-logout';
+import { AccountInfo } from "@azure/msal-browser";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 const storageConfigured = isStorageConfigured();
 
 const App = (): JSX.Element => {
+
   // all blobs in container
   const [blobList, setBlobList] = useState<string[]>([]);
 
   // current file to upload into container
   const [fileSelected, setFileSelected] = useState(null);
 
+  // current authenticated user
+  const [currentUser, setCurrentUser] = useState<AccountInfo>();
+  
   // UI/form management
   const [uploading, setUploading] = useState(false);
   const [inputKey, setInputKey] = useState(Math.random().toString(36));
@@ -66,15 +78,33 @@ const App = (): JSX.Element => {
     </div>
   );
 
+  const Home = () => {
+    return (
+      <div>
+        <h1>Upload file to Azure Blob Storage</h1>
+        { storageConfigured && !uploading && DisplayForm()}
+        { storageConfigured && uploading && <div>Uploading</div>}
+        <hr />
+        { storageConfigured && blobList.length > 0 && DisplayImagesFromContainer()}
+        { !storageConfigured && <div>Storage is not configured.</div>}
+      </div >
+    )
+  }
+
   return (
-    <div>
-      <h1>Upload file to Azure Blob Storage</h1>
-      {storageConfigured && !uploading && DisplayForm()}
-      {storageConfigured && uploading && <div>Uploading</div>}
-      <hr />
-      {storageConfigured && blobList.length > 0 && DisplayImagesFromContainer()}
-      {!storageConfigured && <div>Storage is not configured.</div>}
-    </div>
+    <Router>
+      <div>
+        <AzureAuthenticationButton currentUser={currentUser} />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/logout">
+            <AzureLoggedOut />
+          </Route>
+        </Switch>        
+      </div>
+    </Router>
   );
 };
 
