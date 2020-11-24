@@ -42,7 +42,8 @@ export class AzureAuthenticationContext {
      */
     private setRequestObjects(): void {
         this.loginRequest = {
-            scopes: []
+            scopes: [],
+            prompt:'select_account'
         };
 
         this.loginRedirectRequest = {
