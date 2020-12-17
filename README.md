@@ -1,12 +1,28 @@
+---
+date: 12/17/2020
+owner: diberry
+statusNotificationTargets: diberry	
+name: React client with file upload to Azure Storage Blobs
+urlFragment: js-e2e-react-upload-to-storage-blob
+page_type: sample
+languages:
+- javascript
+- typescript
+- nodejs
+products:
+- azure-archive-storage
+description: In this tutorial, locally build and deploy a React/TypeScript client application to an Azure Static Web App with a GitHub action. Allows you to analyze an image with Cognitive Services Computer Vision.
+---
+
 # JavaScript end-to-end client file upload to Azure Storage Blobs
 
-For a complete tutorial, please use the [Microsoft Documentation tutorial found here](https://docs.microsoft.com/azure/developer/javascript/tutorial/browser-file-upload). 
+This sample project is a TypeScript React (create-react-app) framework client app with an HTML form to select a file for upload to Azure Storage Blobs. 
 
-The sample code is a TypeScript React (create-react-app) framework client with an HTML form for file upload to Azure Storage Blobs. The user selects an image from the file system, then uploads the image to Storage Blobs. 
+The user:
+* selects an image from the file system
+* uploads the image to Storage Blobs
 
-The programming work is done for you, this tutorial focuses on using the local and remote Azure environments successfully.
-
-The tutorial demonstrates how to load and run the project locally with VSCode. The tutorial includes creating a Storage resource, SAS token and CORS configuration. 
+* [Read Tutorial](https://docs.microsoft.com/azure/developer/javascript/tutorial/browser-file-upload-azure-storage-blob) - The tutorial demonstrates how to load and run the project locally with VSCode. The tutorial includes creating a Storage resource, SAS token and CORS configuration. 
 
 ## Sample application
 
