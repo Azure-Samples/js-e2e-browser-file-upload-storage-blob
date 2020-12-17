@@ -1,3 +1,5 @@
+// ./src/azure-storage-blob.ts
+
 // <snippet_package>
 // THIS IS SAMPLE CODE ONLY - NOT MEANT FOR PRODUCTION USE
 import { BlobServiceClient, ContainerClient} from '@azure/storage-blob';
