@@ -1,5 +1,5 @@
 ---
-date: 12/17/2020
+date: 12/18/2020
 owner: diberry
 statusNotificationTargets: diberry	
 name: React client with file upload to Azure Storage Blobs
@@ -11,6 +11,8 @@ languages:
 - nodejs
 products:
 - azure-archive-storage
+- azure-portal
+- vs-code
 description: In this tutorial, locally build and deploy a React/TypeScript client application to an Azure Static Web App with a GitHub action. Allows you to analyze an image with Cognitive Services Computer Vision.
 ---
 
