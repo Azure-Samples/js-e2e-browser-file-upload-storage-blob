@@ -1,19 +1,16 @@
 ---
-date: 12/18/2020
-owner: diberry
-statusNotificationTargets: diberry	
-name: React client with file upload to Azure Storage Blobs
-urlFragment: js-e2e-react-upload-to-storage-blob
 page_type: sample
 languages:
 - javascript
 - typescript
 - nodejs
+name: "JavaScript end-to-end client file upload to Azure Storage Blobs"
+description: "In this tutorial, locally build and deploy a React/TypeScript client application to an Azure Static Web App with a GitHub action. Allows you to analyze an image with Cognitive Services Computer Vision."
 products:
-- azure-archive-storage
+- azure
+- azure-storage
 - azure-portal
 - vs-code
-description: In this tutorial, locally build and deploy a React/TypeScript client application to an Azure Static Web App with a GitHub action. Allows you to analyze an image with Cognitive Services Computer Vision.
 ---
 
 # JavaScript end-to-end client file upload to Azure Storage Blobs
