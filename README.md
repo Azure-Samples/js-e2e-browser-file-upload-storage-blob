@@ -25,6 +25,7 @@ The user:
 
 * [Read Tutorial](https://docs.microsoft.com/azure/developer/javascript/tutorial/browser-file-upload-azure-storage-blob) - The tutorial demonstrates how to load and run the project locally with VSCode. The tutorial includes creating a Storage resource, SAS token and CORS configuration. 
 
+
 ## Sample application
 
 The React (create-react-app) client app consists of the following elements:
