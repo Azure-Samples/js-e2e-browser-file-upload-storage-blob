@@ -8,6 +8,10 @@ FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-${VARIANT}
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 
+# https://github.com/microsoft/vscode-dev-containers/blob/master/script-library/docs/azcli.md
+COPY library-scripts/azcli-debian.sh /tmp/library-scripts/
+RUN apt-get update && bash /tmp/library-scripts/azcli-debian.sh
+
 # [Optional] Uncomment if you want to install an additional version of node using nvm
 # ARG EXTRA_NODE_VERSION=10
 # RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
