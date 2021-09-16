@@ -4,10 +4,9 @@
 // THIS IS SAMPLE CODE ONLY - NOT MEANT FOR PRODUCTION USE
 import { BlobServiceClient, ContainerClient} from '@azure/storage-blob';
 
-// THIS IS SAMPLE CODE ONLY - DON'T STORE TOKEN IN PRODUCTION CODE
-const sasToken = process.env.storagesastoken || ""; // Fill string with your SAS token
 const containerName = `tutorial-container`;
-const storageAccountName = process.env.storageresourcename || "REPLACE-WITH-YOUR-STORAGE-RESOURCE-NAME"; // Fill string with your Storage resource name
+const sasToken = process.env.REACT_APP_STORAGESASTOKEN;
+const storageAccountName = process.env.REACT_APP_STORAGERESOURCENAME; 
 // </snippet_package>
 
 // <snippet_isStorageConfigured>
