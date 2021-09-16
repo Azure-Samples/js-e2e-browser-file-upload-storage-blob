@@ -67,12 +67,17 @@ This project framework provides the following features:
 
     A third Azure package, @azure/arm-storage, is listed in the `package.json` strictly for use by the `scripts/newStorageService.js` file to create a new Azure Storage resource.
 
-1. Set Storage information found at the top of /src/uploadToBlob.ts:
+1. Create a file name `.env` at the root of the project.
+1. Add two required variables with their storage values:
 
-    ```javascript
-    const storageAccountName = "";
-    const sasToken = "";
+    ```text
+    REACT_APP_STORAGESASTOKEN=
+    REACT_APP_STORAGERESOURCENAME=
     ```
+
+    React builds the static files with these variables.
+
+1. If the token begins with a question mark, remove the `?`. The code file provides the `?` for you so you don't need it in the token.
 
 1. Start project: 
 
