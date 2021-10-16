@@ -49,6 +49,7 @@ const App = (): JSX.Element => {
     </div>
   )
 
+  /*
   // display file name and image
   const DisplayImagesFromContainer = () => (
     <div>
@@ -68,7 +69,7 @@ const App = (): JSX.Element => {
       </ul>
     </div>
   );
-
+  */
   const DisplaySuccessMessage = () => (
     <div>
       <h2>Upload Successfull!!</h2>
