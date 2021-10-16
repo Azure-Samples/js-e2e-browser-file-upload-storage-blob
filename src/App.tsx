@@ -1,8 +1,21 @@
 // ./src/App.tsx
 
-import React, { useState } from 'react';
+import React, { Component, useState } from 'react';
 import Path from 'path';
 import uploadFileToBlob, { isStorageConfigured } from './azure-storage-blob';
+import Navbar from "./Navbar.js";
+import "./App.css";
+
+const navlinks = [
+  { name: "Home", to: "#/" },
+  { name: "New Session", to: "#/new" },
+  { name: "Upload", to: "#/upload" },
+  { name: "Review Sessions", to: "#/review" },
+  { name: "Meet Instructors", to: "#/instructors" }
+];
+
+
+const brand = { name: "stay-fit, stay-safe", to: "/" };
 
 const storageConfigured = isStorageConfigured();
 
@@ -69,8 +82,9 @@ const App = (): JSX.Element => {
   );
 
   return (
-    <div>
-      <h1>Upload file to Azure Blob Storage</h1>
+    <div className='App'>
+
+      <Navbar brand={brand} links={navlinks} />
       {storageConfigured && !uploading && DisplayForm()}
       {storageConfigured && uploading && <div>Uploading</div>}
       <hr />
