@@ -42,6 +42,7 @@ const App = (): JSX.Element => {
   const DisplayForm = () => (
     <div>
       <input type="file" onChange={onFileChange} key={inputKey || ''} />
+      <p />
       <button type="submit" onClick={onFileUpload}>
         Upload!
           </button>
@@ -68,13 +69,19 @@ const App = (): JSX.Element => {
     </div>
   );
 
+  const DisplaySuccessMessage = () => (
+    <div>
+      <h2>Upload Successfull!!</h2>
+    </div>
+  );
+
   return (
     <div>
       <h1>Upload file to Azure Blob Storage</h1>
       {storageConfigured && !uploading && DisplayForm()}
       {storageConfigured && uploading && <div>Uploading</div>}
       <hr />
-      {storageConfigured && blobList.length > 0 && DisplayImagesFromContainer()}
+      {storageConfigured && blobList.length > 0 && DisplaySuccessMessage()}
       {!storageConfigured && <div>Storage is not configured.</div>}
     </div>
   );
