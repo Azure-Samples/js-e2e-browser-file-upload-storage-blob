@@ -1,84 +1,109 @@
-
-
-.App {
-  text-align: center;
-  display: flex;
-  font-family: 'sans-serif';
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-
-.navbar {
+/* Add a black background color to the top navigation */
+.sidenav {
+  background: #eee;
+  overflow-x: hidden;
+  height: 100%;
+  width: 160px;
   position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 2rem;
-  margin: 0 auto;
-  padding: 0.5rem 2;
-  z-index: 1000;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bolder;
-  font-style: italic;
-  background: cornflowerblue;
+  overflow-x: hidden;
+  padding-top: 20px;
 }
-.hidden {
-  transform: translate(0, -2.25rem);
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #2196F3;
+  display: block;
 }
-nav a {
-  margin-right: 1rem;
-  font-weight: normal;
+
+.sidenav a:hover {
+  color: #064579;
 }
-.brand {
-  margin-left: 1rem;
-  font-weight: bold;
-  color: white;
+
+.brand{
+  color: #2196F3;
 }
 
 
-.App-header {
-  background-color:cornflowerblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'sans-serif';
-  font-size: calc(20px + 2vmin);
-  font-style: italic;
-  margin-left: 1rem;
-  color: white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  margin: 0 auto;
-  height: 4rem;
-  flex-direction: row;
-  font-weight: bolder;
-  z-index: 1000;
+.main {
+  margin-left: 160px; /* Same width as the sidebar + left position in px */
+  font-size: 18px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
 }
 
-.App-link {
-  color: #61dafb;
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Style the search box */
+#mySearch {
+  width: 70%;
+  font-size: 18px;
+  padding: 6px 8px 6px 16px;
+  border: 1px solid #ddd;
+}
+
+/* Style the navigation menu inside the left column */
+#myMenu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* The dropdown container */
+.dropdown {
+  font-size: 18px;
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  border: none;
+  outline: none;
+  color:burlywood;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.sidenav a:hover, .dropdown:hover .dropbtn {
+  color: #064579;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
 }
