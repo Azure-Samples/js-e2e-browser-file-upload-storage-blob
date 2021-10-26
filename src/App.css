@@ -3,7 +3,7 @@
   background: #eee;
   overflow-x: hidden;
   height: 100%;
-  width: 160px;
+  width: 200px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -30,7 +30,7 @@
 
 
 .main {
-  margin-left: 160px; /* Same width as the sidebar + left position in px */
+  margin-left: 200px; /* Same width as the sidebar + left position in px */
   font-size: 18px; /* Increased text to enable scrolling */
   padding: 0px 10px;
 }
@@ -42,7 +42,7 @@
 
 /* Style the search box */
 #mySearch {
-  width: 70%;
+  width: 80%;
   font-size: 18px;
   padding: 6px 8px 6px 16px;
   border: 1px solid #ddd;
@@ -55,55 +55,39 @@
   margin: 0;
 }
 
-/* The dropdown container */
-.dropdown {
-  font-size: 18px;
-  float: left;
-  overflow: hidden;
-}
 
-/* Dropdown button */
-.dropdown .dropbtn {
+.dropbtn {
+  color: #2196F3;
+  padding: 16px;
+  font-size: 16px;
   border: none;
-  outline: none;
-  color:burlywood;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
+  cursor: pointer;
 }
 
-/* Add a red background color to navbar links on hover */
-.sidenav a:hover, .dropdown:hover .dropbtn {
+.dropbtn:hover, .dropbtn:focus {
   color: #064579;
 }
 
-/* Dropdown content (hidden by default) */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
 .dropdown-content {
-  display: none;
+  display: block;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: #f1f1f1;
   min-width: 160px;
+  overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
-  float: none;
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  text-align: left;
 }
 
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+.dropdown a:hover {background-color: #ddd;}

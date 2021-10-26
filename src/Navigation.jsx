@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import {Dropdown} from "react-bootstrap";
 
 
 
@@ -19,25 +20,28 @@ function Navigation(props) {
       }
     }
   }
+
   return (
     <div className="sidenav">
-      <input type="text" id="mySearch" onkeyup="search()" placeholder="Search.." title="Type in a category">
+      <input type="text" id="mySearch" onkeyup="search()" placeholder="Search" title="Type in a category">
         </input>
       <ul id="myMenu">
           <a href="/">Home</a>
+          <a href="/find">Find A Session</a>
           <a href="/practice">Practice</a>
-          <a href="/review">Review</a>
-          <a href="/instructors">Instructors</a>
+          <a href="/review">Review My Sessions</a>
+          <a href="/instructors">Meet Instructors</a>
+          <a href="/about">About The Project</a>
       </ul>
-      <div className="dropdown">
-        <button className="dropbtn">Account
-          <i className="fa fa-caret-down"></i>
-        </button>
-        <div className="dropdown-content">
-          <a href="/student">Student</a>
-          <a href="/instructor">Practitioner</a>
-        </div>
-    </div>
+      <Dropdown>
+        <Dropdown.Toggle variant="Warning" id="dropdown-basic"> Account
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu>
+          <Dropdown.Item href="#/student">Student</Dropdown.Item>
+          <Dropdown.Item href="#/instructor">Instructor</Dropdown.Item>
+        </Dropdown.Menu>
+</Dropdown>
     </div>
   );
 }
