@@ -10,6 +10,7 @@ import Footer from "./Footer.jsx";
 import About from "./About.jsx";
 import Find from "./Find.jsx";
 import "./App.css";
+import "./robots.txt";
 
 const brand = { name: "stay-fit, stay-safe", to: "/" };
 

@@ -6,6 +6,10 @@ import connected_pavel from "./images/connected-pavel.png";
 import foundation_pavel from "./images/foundation-pavel.png";
 import connected_data1 from "./images/connected-sun-data1.png";
 import connected_data2 from "./images/connected-sun-image2.png";
+import foundation_data1 from "./images/foundations-data1.PNG";
+import foundation_data2 from "./images/foundation-data2.PNG";
+import fertility_data1 from "./images/fertility-data1.png";
+import fertility_data2 from "./images/fertility-data2.png";
 
 function CardDisplay() {
   return (
@@ -28,8 +32,8 @@ function CardDisplay() {
                 <li> Instructor: Pavel Dmitriev</li>
                 <li> Primary  health benefits  of this practice include (but are not limited to) helping with insomnia, sciatica, depression, asthma,  anxiety. </li>
                 <li> Main focus of this session is on the following muscle groups: Spine extender, deltoid, Glute muscles, Quadricepts, triceps. </li>
-                <Image src={connected_data1} rounded fluid/>
                 <Image src={connected_data2} rounded fluid/>
+                <Image src={connected_data1} rounded fluid/>
               </ul>
             </Accordion.Body>
           </Accordion.Item>
@@ -55,6 +59,8 @@ function CardDisplay() {
                 <li> Instructor: Lynn Jensen</li>
                 <li> Primary  health benefits  of this practice include (but are not limited to) helping with anxiety, asthma, sciatica, insomnia, depression, calm, pregnancy.  </li>
                 <li> Main focus of this session is on the following muscle groups: Spine extender, Trapezius and Rhomboid, inner upper back, triceps,  deltoid, Glute muscles, Set of muscles to bend hip towards muscle, Quadricepts. </li>
+                <Image src={fertility_data1} rounded fluid/>
+                <Image src={fertility_data2} rounded fluid/>
               </ul>
             </Accordion.Body>
           </Accordion.Item>
@@ -80,6 +86,8 @@ function CardDisplay() {
                 <li> Instructor: Pavel Dmitriev</li>
                 <li> Primary  health benefits  of this practice include (but are not limited to) helping with insomnia, sciatica, depression, asthma,  anxiety. </li>
                 <li> Main focus of this session is on the following muscle groups: Spine extender, Glute muscles, triceps, Trapezius and Rhomboid, inner upper back, Hamstrings. </li>
+                <Image src={foundation_data2} rounded fluid/>
+                <Image src={foundation_data1} rounded fluid/>
               </ul>
             </Accordion.Body>
           </Accordion.Item>
