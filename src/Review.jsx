@@ -92,7 +92,7 @@ function Review() {
               <ul>
               <li> Session Date: 20th Oct, 2021</li>
               <li> Session Duration: 15 mins</li>
-              <li> Session Health Benefits: Spine extender, deltoid, Glutes + butt muscles, Quadricepts, triceps.</li>
+              <li> Session Health Benefits: Spine extender, deltoid, Glute muscles, Quadricepts, triceps.</li>
               <Image src={connected_data1} rounded fluid/>
                 <Image src={connected_data2} rounded fluid/>
              </ul>
@@ -115,7 +115,7 @@ function Review() {
             <ul>
               <li> Session Date: 10th Oct, 2021</li>
               <li> Session Duration: 10 mins</li>
-              <li> Session Health Benefits: Spine extender, deltoid, Glutes + butt muscles, Quadricepts, triceps.</li>
+              <li> Session Health Benefits: Spine extender, deltoid, Glute muscles, Quadricepts, triceps.</li>
              </ul>
             </Accordion.Body>
           </Accordion.Item>

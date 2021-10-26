@@ -27,7 +27,7 @@ function CardDisplay() {
               <ul>
                 <li> Instructor: Pavel Dmitriev</li>
                 <li> Primary  health benefits  of this practice include (but are not limited to) helping with insomnia, sciatica, depression, asthma,  anxiety. </li>
-                <li> Main focus of this session is on the following muscle groups: Spine extender, deltoid, Glutes + butt muscles, Quadricepts, triceps. </li>
+                <li> Main focus of this session is on the following muscle groups: Spine extender, deltoid, Glute muscles, Quadricepts, triceps. </li>
                 <Image src={connected_data1} rounded fluid/>
                 <Image src={connected_data2} rounded fluid/>
               </ul>
@@ -39,7 +39,7 @@ function CardDisplay() {
       </Card>
 
       <Card>
-        <Card.Img variant="top" src={foundation_pavel} />
+        <Card.Img variant="top" src={lynn_fertility} />
         <Card.Body>
           <Card.Title>Yoga for fertility</Card.Title>
           <Card.Text>
@@ -54,7 +54,7 @@ function CardDisplay() {
             <ul>
                 <li> Instructor: Lynn Jensen</li>
                 <li> Primary  health benefits  of this practice include (but are not limited to) helping with anxiety, asthma, sciatica, insomnia, depression, calm, pregnancy.  </li>
-                <li> Main focus of this session is on the following muscle groups: Spine extender, Trapezius and Rhomboid, inner upper back, triceps,  deltoid, Glutes + butt muscles, Set of muscles to bend hip towards muscle, Quadricepts. </li>
+                <li> Main focus of this session is on the following muscle groups: Spine extender, Trapezius and Rhomboid, inner upper back, triceps,  deltoid, Glute muscles, Set of muscles to bend hip towards muscle, Quadricepts. </li>
               </ul>
             </Accordion.Body>
           </Accordion.Item>
@@ -64,7 +64,7 @@ function CardDisplay() {
       </Card>
 
       <Card>
-        <Card.Img variant="top" src={lynn_fertility}  />
+        <Card.Img variant="top" src={foundation_pavel}  />
         <Card.Body>
           <Card.Title>Foundational Program</Card.Title>
           <Card.Text>
@@ -79,7 +79,7 @@ function CardDisplay() {
             <ul>
                 <li> Instructor: Pavel Dmitriev</li>
                 <li> Primary  health benefits  of this practice include (but are not limited to) helping with insomnia, sciatica, depression, asthma,  anxiety. </li>
-                <li> Main focus of this session is on the following muscle groups: Spine extender, Glutes + butt muscles, triceps, Trapezius and Rhomboid, inner upper back, Hamstrings. </li>
+                <li> Main focus of this session is on the following muscle groups: Spine extender, Glute muscles, triceps, Trapezius and Rhomboid, inner upper back, Hamstrings. </li>
               </ul>
             </Accordion.Body>
           </Accordion.Item>
