@@ -12,6 +12,7 @@ import Find from "./Find.jsx";
 import "./App.css";
 import "./robots.txt";
 
+
 const brand = { name: "stay-fit, stay-safe", to: "/" };
 
 const App = (): JSX.Element => {
