@@ -1,10 +1,7 @@
-//import * as msRest from "@azure/ms-rest-js";
-//import * as msRestAzure from "@azure/ms-rest-azure-js";
-const msRestNodeAuth = require("@azure/ms-rest-nodeauth");
-const azureStorage = require("@azure/arm-storage");
-const StorageManagementClient = azureStorage.StorageManagementClient;
-const StorageManagementModels = azureStorage.StorageManagementModels;
-const StorageManagementMappers = azureStorage.StorageManagementMappers;
+//import DeviceCodeCredential from "@azure/identity";
+//import StorageManagementClient from "@azure/arm-storage";
+const { DeviceCodeCredential } = require("@azure/identity");
+const { StorageManagementClient } = require("@azure/arm-storage");
 
 // DON'T DO THIS IN PRODUCTION CODE
 const subscriptionId = "REPLACE-WITH-YOUR-SUBSCRIPTION";
@@ -15,9 +12,9 @@ const storageResourceName = "REPLACE-WITH-YOUR-RESOURCE-NAME";
 const longStorageAccountName = storageResourceName + Math.random().toString().replace(/0\./, '');
 const accountName = longStorageAccountName.substring(0, 24);
 
+const creds = new DeviceCodeCredential();
 
-msRestNodeAuth.interactiveLogin().then(async (creds) => {
-    
+async function main() {
     const client = new StorageManagementClient(creds, subscriptionId);
 
     const blobServiceOptions = {
@@ -36,12 +33,15 @@ msRestNodeAuth.interactiveLogin().then(async (creds) => {
             name: 'Standard_RAGRS',
             tier: 'Standard'
         }
-        
+
     }
     const createStorageAccountResponse = await client.storageAccounts.create(existingResourceGroup, accountName, blobServiceOptions);
-    
+
     console.log(createStorageAccountResponse);
-    
-}).catch((err) => {
+
+}
+
+main().catch((err) => {
+    console.log("An error occurred:");
     console.error(err);
 });
