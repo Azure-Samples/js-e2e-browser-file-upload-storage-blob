@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@azure/arm-storage": "^15.1.0",
+    "@azure/arm-storage": "^16.1.2",
+    "@azure/identity": "^2.0.1",
     "@azure/ms-rest-nodeauth": "^3.0.6",
     "@azure/storage-blob": "^12.2.1",
     "@testing-library/jest-dom": "^4.2.4",
