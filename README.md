@@ -62,7 +62,7 @@ This project framework provides the following features:
     ```
 
     To run the React app, you need the following Azure SDK client npm packages:
-    * @azure/ms-rest-nodeauth
+    * @azure/identity
     * @azure/storage-blob
 
     A third Azure package, @azure/arm-storage, is listed in the `package.json` strictly for use by the `scripts/newStorageService.js` file to create a new Azure Storage resource.
