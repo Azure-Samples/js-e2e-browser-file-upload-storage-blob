@@ -35,7 +35,7 @@ async function main() {
         }
 
     }
-    const createStorageAccountResponse = await client.storageAccounts.create(existingResourceGroup, accountName, blobServiceOptions);
+    const createStorageAccountResponse = await client.storageAccounts.beginCreateAndWait(existingResourceGroup, accountName, blobServiceOptions);
 
     console.log(createStorageAccountResponse);
 
