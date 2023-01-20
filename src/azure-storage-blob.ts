@@ -2,41 +2,57 @@
 
 // <snippet_package>
 // THIS IS SAMPLE CODE ONLY - NOT MEANT FOR PRODUCTION USE
-import { BlobServiceClient, ContainerClient} from '@azure/storage-blob';
+import { BlobServiceClient, ContainerClient } from "@azure/storage-blob";
 
-const containerName = `tutorial-container`;
-const sasToken = process.env.REACT_APP_STORAGESASTOKEN;
-const storageAccountName = process.env.REACT_APP_STORAGERESOURCENAME; 
+const containerName = `uploaded`;
+const sasToken = process.env.REACT_APP_AZURE_STORAGE_SAS_TOKEN;
+const storageAccountName = process.env.REACT_APP_AZURE_STORAGE_RESOURCE_NAME;
 // </snippet_package>
+
+// <snippet_get_client>
+const uploadUrl = `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`;
+console.log(uploadUrl);
+
+// get BlobService = notice `?` is pulled out of sasToken - if created in Azure portal
+const blobService = new BlobServiceClient(uploadUrl);
+
+// get Container - full public read access
+const containerClient: ContainerClient =
+  blobService.getContainerClient(containerName);
+// </snippet_get_client
 
 // <snippet_isStorageConfigured>
 // Feature flag - disable storage feature to app if not configured
 export const isStorageConfigured = () => {
-  return (!storageAccountName || !sasToken) ? false : true;
-}
+  return !storageAccountName || !sasToken ? false : true;
+};
 // </snippet_isStorageConfigured>
 
 // <snippet_getBlobsInContainer>
 // return list of blobs in container to display
-const getBlobsInContainer = async (containerClient: ContainerClient) => {
-  const returnedBlobUrls: string[] = [];
+export const getBlobsInContainer = async () => {
+  const returnedBlobUrls = [];
 
   // get list of blobs in container
   // eslint-disable-next-line
   for await (const blob of containerClient.listBlobsFlat()) {
+    console.log(`${blob.name}`);
+
+    const blobItem = {
+      url: `https://${storageAccountName}.blob.core.windows.net/${containerName}/${blob.name}?${sasToken}`,
+      name: blob.name
+    }
+
     // if image is public, just construct URL
-    returnedBlobUrls.push(
-      `https://${storageAccountName}.blob.core.windows.net/${containerName}/${blob.name}`
-    );
+    returnedBlobUrls.push(blobItem);
   }
 
   return returnedBlobUrls;
-}
+};
 // </snippet_getBlobsInContainer>
 
 // <snippet_createBlobInContainer>
-const createBlobInContainer = async (containerClient: ContainerClient, file: File) => {
-  
+const createBlobInContainer = async (file: File) => {
   // create blobClient for container
   const blobClient = containerClient.getBlockBlobClient(file.name);
 
@@ -45,31 +61,16 @@ const createBlobInContainer = async (containerClient: ContainerClient, file: Fil
 
   // upload file
   await blobClient.uploadData(file, options);
-}
+};
 // </snippet_createBlobInContainer>
 
 // <snippet_uploadFileToBlob>
-const uploadFileToBlob = async (file: File | null): Promise<string[]> => {
-  if (!file) return [];
-
-  // get BlobService = notice `?` is pulled out of sasToken - if created in Azure portal
-  const blobService = new BlobServiceClient(
-    `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`
-  );
-
-  // get Container - full public read access
-  const containerClient: ContainerClient = blobService.getContainerClient(containerName);
-  await containerClient.createIfNotExists({
-    access: 'container',
-  });
+const uploadFileToBlob = async (file: File | null): Promise<void> => {
+  if (!file) return;
 
   // upload file
-  await createBlobInContainer(containerClient, file);
-
-  // get list of blobs in container
-  return getBlobsInContainer(containerClient);
+  await createBlobInContainer(file);
 };
 // </snippet_uploadFileToBlob>
 
 export default uploadFileToBlob;
-

@@ -1,9 +1,8 @@
 // ./src/App.tsx
 
-import React, { useState } from 'react';
-import Path from 'path';
-import uploadFileToBlob, { isStorageConfigured } from './azure-storage-blob';
-
+import React, { useState, useEffect } from 'react';
+import uploadFileToBlob, { isStorageConfigured, getBlobsInContainer } from './azure-storage-blob';
+import DisplayImagesFromContainer from './ContainerImages';
 const storageConfigured = isStorageConfigured();
 
 const App = (): JSX.Element => {
@@ -11,11 +10,20 @@ const App = (): JSX.Element => {
   const [blobList, setBlobList] = useState<string[]>([]);
 
   // current file to upload into container
-  const [fileSelected, setFileSelected] = useState(null);
+  const [fileSelected, setFileSelected] = useState<File | null>();
+  const [fileUploaded, setFileUploaded] = useState<string>('');
 
   // UI/form management
-  const [uploading, setUploading] = useState(false);
+  const [uploading, setUploading] = useState<boolean>(false);
   const [inputKey, setInputKey] = useState(Math.random().toString(36));
+
+  // *** GET FILES IN CONTAINER ***
+  useEffect(() => {
+    getBlobsInContainer().then((list:any) =>{
+      // prepare UI for results
+      setBlobList(list);
+    })
+  }, [fileUploaded]);
 
   const onFileChange = (event: any) => {
     // capture file into state
@@ -23,19 +31,22 @@ const App = (): JSX.Element => {
   };
 
   const onFileUpload = async () => {
+
+    if(fileSelected && fileSelected?.name){
     // prepare UI
     setUploading(true);
 
     // *** UPLOAD TO AZURE STORAGE ***
-    const blobsInContainer: string[] = await uploadFileToBlob(fileSelected);
-
-    // prepare UI for results
-    setBlobList(blobsInContainer);
+    await uploadFileToBlob(fileSelected);
 
     // reset state/form
     setFileSelected(null);
+    setFileUploaded(fileSelected.name);
     setUploading(false);
     setInputKey(Math.random().toString(36));
+
+    }
+
   };
 
   // display form
@@ -48,33 +59,13 @@ const App = (): JSX.Element => {
     </div>
   )
 
-  // display file name and image
-  const DisplayImagesFromContainer = () => (
-    <div>
-      <h2>Container items</h2>
-      <ul>
-        {blobList.map((item) => {
-          return (
-            <li key={item}>
-              <div>
-                {Path.basename(item)}
-                <br />
-                <img src={item} alt={item} height="200" />
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-
   return (
     <div>
       <h1>Upload file to Azure Blob Storage</h1>
       {storageConfigured && !uploading && DisplayForm()}
       {storageConfigured && uploading && <div>Uploading</div>}
       <hr />
-      {storageConfigured && blobList.length > 0 && DisplayImagesFromContainer()}
+      {storageConfigured && blobList.length > 0 && <DisplayImagesFromContainer blobList={blobList}/>}
       {!storageConfigured && <div>Storage is not configured.</div>}
     </div>
   );
