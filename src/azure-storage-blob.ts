@@ -19,7 +19,7 @@ const blobService = new BlobServiceClient(uploadUrl);
 // get Container - full public read access
 const containerClient: ContainerClient =
   blobService.getContainerClient(containerName);
-// </snippet_get_client
+// </snippet_get_client>
 
 // <snippet_isStorageConfigured>
 // Feature flag - disable storage feature to app if not configured
