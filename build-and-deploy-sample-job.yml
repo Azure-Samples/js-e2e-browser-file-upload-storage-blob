@@ -20,6 +20,6 @@ jobs:
           api_location: "api" # Api source code path - optional
           output_location: "build" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
-        env: # Add environment variables here
-            REACT_APP_STORAGESASTOKEN: ${{secrets.REACT_APP_STORAGESASTOKEN}}
-            REACT_APP_STORAGERESOURCENAME: ${{secrets.REACT_APP_STORAGERESOURCENAME}}
+        env: 
+          REACT_APP_AZURE_STORAGE_SAS_TOKEN: ${{secrets.REACT_APP_AZURE_STORAGE_SAS_TOKEN}}
+          REACT_APP_AZURE_STORAGE_RESOURCE_NAME: ${{secrets.REACT_APP_AZURE_STORAGE_RESOURCE_NAME}}
