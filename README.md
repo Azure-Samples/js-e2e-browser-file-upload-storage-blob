@@ -73,8 +73,8 @@ This project framework provides the following features:
 1. Add two required variables with their storage values:
 
     ```text
-    REACT_APP_STORAGESASTOKEN=
-    REACT_APP_STORAGERESOURCENAME=
+    REACT_APP_AZURE_STORAGE_SAS_TOKEN=
+    REACT_APP_AZURE_STORAGE_RESOURCE_NAME=
     ```
 
     React builds the static files with these variables.
