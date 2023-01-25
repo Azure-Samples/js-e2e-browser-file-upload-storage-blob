@@ -5,27 +5,27 @@ import uploadFileToBlob, { isStorageConfigured, getBlobsInContainer } from './az
 import DisplayImagesFromContainer from './ContainerImages';
 const storageConfigured = isStorageConfigured();
 
-const App = (): JSX.Element => {
+const App = () => {
   // all blobs in container
-  const [blobList, setBlobList] = useState<string[]>([]);
+  const [blobList, setBlobList] = useState([]);
 
   // current file to upload into container
-  const [fileSelected, setFileSelected] = useState<File | null>();
-  const [fileUploaded, setFileUploaded] = useState<string>('');
+  const [fileSelected, setFileSelected] = useState();
+  const [fileUploaded, setFileUploaded] = useState('');
 
   // UI/form management
-  const [uploading, setUploading] = useState<boolean>(false);
+  const [uploading, setUploading] = useState(false);
   const [inputKey, setInputKey] = useState(Math.random().toString(36));
 
   // *** GET FILES IN CONTAINER ***
   useEffect(() => {
-    getBlobsInContainer().then((list:any) =>{
+    getBlobsInContainer().then((list) =>{
       // prepare UI for results
       setBlobList(list);
     })
   }, [fileUploaded]);
 
-  const onFileChange = (event: any) => {
+  const onFileChange = (event) => {
     // capture file into state
     setFileSelected(event.target.files[0]);
   };

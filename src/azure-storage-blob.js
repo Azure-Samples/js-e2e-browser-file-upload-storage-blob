@@ -2,7 +2,7 @@
 
 // <snippet_package>
 // THIS IS SAMPLE CODE ONLY - NOT MEANT FOR PRODUCTION USE
-import { BlobServiceClient, ContainerClient } from "@azure/storage-blob";
+import { BlobServiceClient } from "@azure/storage-blob";
 
 const containerName = `uploaded`;
 const sasToken = process.env.REACT_APP_AZURE_STORAGE_SAS_TOKEN;
@@ -17,7 +17,7 @@ console.log(uploadUrl);
 const blobService = new BlobServiceClient(uploadUrl);
 
 // get Container - full public read access
-const containerClient: ContainerClient =
+const containerClient =
   blobService.getContainerClient(containerName);
 // </snippet_get_client>
 
@@ -52,7 +52,7 @@ export const getBlobsInContainer = async () => {
 // </snippet_getBlobsInContainer>
 
 // <snippet_createBlobInContainer>
-const createBlobInContainer = async (file: File) => {
+const createBlobInContainer = async (file) => {
   // create blobClient for container
   const blobClient = containerClient.getBlockBlobClient(file.name);
 
@@ -65,7 +65,7 @@ const createBlobInContainer = async (file: File) => {
 // </snippet_createBlobInContainer>
 
 // <snippet_uploadFileToBlob>
-const uploadFileToBlob = async (file: File | null): Promise<void> => {
+const uploadFileToBlob = async (file) => {
   if (!file) return;
 
   // upload file

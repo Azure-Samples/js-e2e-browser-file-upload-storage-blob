@@ -1,9 +1,9 @@
 
-const DisplayImagesFromContainer = ({blobList}:any) => (
+const DisplayImagesFromContainer = ({blobList}) => (
     <div>
       <h2>Container items</h2>
       <ul>
-        {blobList.map((item:any) => {
+        {blobList.map((item) => {
           return (
             <li key={item.name}>
               <div>
