@@ -5,13 +5,12 @@ languages:
 - typescript
 - nodejs
 name: "JavaScript end-to-end client file upload to Azure Storage Blobs"
-description: "Locally build and deploy client application to an Azure Static Web App with a GitHub action, analyze image with Cognitive Services Computer Vision."
+description: "Use an Azure Static Web App (client-side React app) to upload an image file to an Azure Storage blob using an Azure Storage @azure/storage-blob npm package and an Azure Storage SAS token."
 products:
 - azure
 - azure-storage
 - azure-portal
 - vs-code
-- azure-computer-vision
 - azure-app-service-static
 ---
 
