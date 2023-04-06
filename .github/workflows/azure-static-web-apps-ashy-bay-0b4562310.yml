@@ -31,7 +31,9 @@ jobs:
           api_location: "" # Api source code path - optional
           output_location: "build" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
-
+      env: 
+          REACT_APP_AZURE_STORAGE_SAS_TOKEN: ${{secrets.REACT_APP_AZURE_STORAGE_SAS_TOKEN}}
+          REACT_APP_AZURE_STORAGE_RESOURCE_NAME: ${{secrets.REACT_APP_AZURE_STORAGE_RESOURCE_NAME}}
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
