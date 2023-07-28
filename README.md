@@ -14,6 +14,8 @@ products:
 - azure-app-service-static
 ---
 
+**This sample has been archived. There is a current version available in [https://github.com/Azure-Samples/azure-typescript-e2e-apps](https://github.com/Azure-Samples/azure-typescript-e2e-apps).** 
+
 # JavaScript end-to-end client file upload to Azure Storage Blobs
 
 This sample project is a TypeScript React (create-react-app) framework client app with an HTML form to select a file for upload to Azure Storage Blobs. 
